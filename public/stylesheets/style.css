@@ -1,8 +1,17 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white;
 }
 
 a {
   color: #00B7FF;
+}
+
+#index {
+  background-image: url('https://images.unsplash.com/photo-1483081979849-4367277fb4d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80');
+  margin: auto;
+  padding: auto;
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, .4);
+  color:white;
 }
