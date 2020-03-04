@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <table class="table table-light tracks text-center">
+                <thead>
+                    <th><h4>Songs</h4></th>
+                </thead>
+                <tbody>
+                    <% tracks.forEach( t => { %>
+                        <tr>
+                            <td>
+                                <button class="btn btn-success"><%= t.name %></button>
+                                <button class="btn btn-primary"><%= t.popularity %></button>
+                                <a href="/<%= t.id %>/analyze" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Analyze</a></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

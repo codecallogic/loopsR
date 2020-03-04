@@ -1,26 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <!-- bootscdn, bootsjs, jquerypopper, jqueryslim, jquery, expressStyle -->
-    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    
-  </head>
-  <body>
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
     <div id="index" class="container-fluid">
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <ul>
-      <li>
-        <% if (user) { %>
-          <a href="/logout">Log Out</a>
-        <% } else { %>
-          <a href="/auth/google">Login with Google</a>
-        <% } %>
-      </li>
-    </ul>
+    <div class="row h-100">
+      <div class="col-6 my-auto">
+        <h1 class="mb-5">Curate Playlists</h1>
+        <form action="/boards/search" method="post">
+        <div class="input-group">
+          <% if(user){ %>
+            <input type="text" class="form-control" name="query" placeholder="Enter artist, album, song name">
+            <input type="hidden" name="id" value="<%= user._id %>">
+            <div class="input-group-append">
+              <button class="btn btn-dark">Search</button>
+            </div>
+          <% }else{%>
+            <input type="text" class="form-control" placeholder="Please login first">
+            <div class="input-group-append"></div>
+            <button class="btn btn-dark">Login</button>
+            </div>
+          </div>
+          <% } %>
+        </div>
+        </form>
+      </div>
+      </div>
+    </div>
   </div>
   </body>
 </html>

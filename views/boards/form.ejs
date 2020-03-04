@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+<div class="container">
+        <div class="row v-100 mt-5">
+            <div class="col-12 my-auto">
+            <form action="/playlist/create" method="post">
+                <label for="title">Title</label>
+                <div class="input-group">
+                    <input type="text" name="title" class="form-control">
+                </div>
+                <label for="content">Content</label>
+                <div class="input-group">
+                    <textarea name="content" id="" class="form-control TypeHere" cols="50" rows="10"></textarea>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

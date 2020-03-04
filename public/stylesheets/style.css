@@ -8,10 +8,75 @@ a {
 }
 
 #index {
-  background-image: url('https://images.unsplash.com/photo-1483081979849-4367277fb4d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80');
-  margin: auto;
-  padding: auto;
+  background-image: url('https://images.unsplash.com/photo-1511233002817-99325d7cc2d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80');
   background-blend-mode: multiply;
-  background-color: rgba(0, 0, 0, .4);
+  background-color: rgba(213, 113, 99, .5);
   color:white;
+  height:700px;
+}
+
+.navbar .navbar-nav li a{
+  text-decoration: none;
+  color: #CA5129;
+  margin: 0px 5vmin 0px 0px;
+}
+
+.playlists tbody a{
+  padding:10px;
+  width:100%;
+}
+
+.tracks tbody button{
+  padding:10px;
+  width:30%;
+}
+
+.tracks tbody a{
+  padding:10px;
+  width:20%;
+}
+
+
+/* Modal */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#myBtn {
+  
 }

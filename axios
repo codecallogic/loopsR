@@ -1,0 +1,23 @@
+axios({method: 'post', headers: {Authorization: 'Basic ' + 'MzEyNTc2NjMwNDQ4NDk0Njk1YTdiOGQzZjg5NzU2ZjI6YWI1ZGEzZjFlNzAyNDgyMmI1ZTUyMjY5MzgxNWM4NWE'}, url: '/https://accounts.spotify.com/api/token',
+        data: {
+            grant_type: 'authorization_code',
+            code: `${code}`,
+            redirect_uri: 'http%3A%2F%2Flocalhost%3A3000%2Fplaylist%2F'
+
+        }
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+}
+
+function create(req, res){
+    console.log(req.body)
+    const post = new Post(req.body)
+    post.save(function(err){
+        if(err) return res.render('/')
+        console.log(req.body)
+    })
