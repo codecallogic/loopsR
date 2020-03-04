@@ -8,7 +8,7 @@
         <div class="input-group">
           <% if(user){ %>
             <input type="text" class="form-control" name="query" placeholder="Enter artist, album, song name">
-            <input type="hidden" name="id" value="<%= user._id %>">
+            <input type="hidden" name="id" value="<%= user.googleId %>">
             <div class="input-group-append">
               <button class="btn btn-dark">Search</button>
             </div>

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const searchSchema = new Schema({
     query: String,
-    id: Number
+    id: Number,
 },{
     timestamps: true
 })

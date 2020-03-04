@@ -3,15 +3,21 @@
 <div class="container">
         <div class="row v-100 mt-5">
             <div class="col-12 my-auto">
-            <form action="/playlist/create" method="post">
-                <label for="title">Title</label>
+            <form action="/boards/create" method="post">
+                <label for="title" class="mt-4">Title</label>
                 <div class="input-group">
                     <input type="text" name="title" class="form-control">
                 </div>
-                <label for="content">Content</label>
-                <div class="input-group">
-                    <textarea name="content" id="" class="form-control TypeHere" cols="50" rows="10"></textarea>
+                <label for="tags" class="mt-4">Tags</label>
+                <input type="hidden" name="tags" id="tagValue" value="">
+                <div class="tag-container">
+                    <input></>  
                 </div>
+                <label for="content" class="mt-4">Content</label>
+                <div class="input-group">
+                    <textarea name="content" class="form-control TypeHere" cols="50" rows="30"></textarea>
+                </div>
+                <button type="submit" class="form-control btn btn-dark submit">Create Board</button>
             </form>
             </div>
         </div>
