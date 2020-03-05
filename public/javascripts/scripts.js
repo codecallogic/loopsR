@@ -3,27 +3,34 @@ tinymce.init({
     paste_as_text: true,
     width: "100%",
     format: 'text',
+    // content_css : "/stylesheets/style.css",
+    // setup : function(ed)
+    // {
+    // // set the editor font size
+    // ed.onInit.add(function(ed)
+    // {
+    // ed.getBody().style.fontSize = '80px';
+    // });
+    // },
     plugins: [
-        "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
-        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-        "table contextmenu directionality emoticons template textcolor paste "
+        // "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
+        // "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+        // "table contextmenu directionality emoticons template textcolor paste "
     ],
 });
 
-// let tags = document.querySelector(".tag-container")
-
-// tags.addEventListener("keyup", function(e){
-//     if(e.keyCode === 13){
-//         event.preventDefault();
-        
-//     }
-
-// })
-
 const tagContainer = document.querySelector('.tag-container');
 const input = document.querySelector('.tag-container input');
+const database = document.querySelector('#database').value
+
+console.log(database)
 
 let tags = [];
+
+if(database){
+    let split = database.split(',')
+    tags = split
+}
 
 function createTag(label) {
   const div = document.createElement('div');
@@ -35,7 +42,7 @@ function createTag(label) {
   closeIcon.setAttribute('class', 'material-icons');
   closeIcon.setAttribute('data-item', label);
   div.appendChild(span);
-  div.appendChild(closeIcon);      
+  div.appendChild(closeIcon);
   return div;
 }
 
@@ -56,16 +63,14 @@ function addTags() {
     tagValues.forEach( e => {
         values.push(e.innerText)
     })
-    // console.log(values)
+    console.log(values)
     input.setAttribute('value', values)   
-    // console.dir(input.value)
-    // console.dir(tagValues[0].innerHTML)
 }
 
 input.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
       e.target.value.split(',').forEach(tag => {
-        tags.push(tag);
+        tags.push(tag);  
       });
       
       addTags();

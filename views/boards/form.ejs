@@ -6,12 +6,16 @@
             <form action="/boards/create" method="post">
                 <label for="title" class="mt-4">Title</label>
                 <div class="input-group">
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" class="form-control" required>
                 </div>
                 <label for="tags" class="mt-4">Tags</label>
-                <input type="hidden" name="tags" id="tagValue" value="">
+                <input type="hidden" name="tags" id="tagValue" value="" required>
                 <div class="tag-container">
                     <input></>  
+                </div>
+                <label for="image" class="mt-4">Image</label>
+                <div class="input-group">
+                    <input type="text" name="image" class="form-control" placeholder="Add image link" required>
                 </div>
                 <label for="content" class="mt-4">Content</label>
                 <div class="input-group">

@@ -69,3 +69,38 @@ request({url: playlistUrl, headers:{"Authorization":token}}, function(error, res
     }
 })
 }
+
+<%- b.content.split('\r\n')[0].substr(13,100) %>" alt="
+
+<%- b.content.split('\r\n')[0] %> <%- b.content.split('\r\n')[1].substr(0,100) + `</p>`%>
+
+<%- b.content.split('\r\n')[0].substr(13,100) %>
+
+{$and: [{'tags.tags': {$in: albumNames} }, {'tags.tags': {$in: artists} }]}
+
+
+
+// let tagValues = document.querySelectorAll(".tag > span")
+//   let input = document.getElementById("tagValue")
+//   let values = []
+//     tagValues.forEach( e => {
+//         values.push(e.innerText)
+//     })
+//     // console.log(values)
+//     input.setAttribute('value', values)   
+//     // console.dir(input.value)
+//     // console.dir(tagValues[0].innerHTML)
+
+
+const tagContainer = document.querySelector('.tag-container');
+const input = document.querySelector('.tag-container input');
+const database = document.querySelector('#database').value
+
+console.log(database)
+
+let tags = [];
+
+if(database){
+    let split = database.split(',')
+    tags = split
+}

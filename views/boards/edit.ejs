@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+<div class="container">
+    <div class="row v-100 mt-5">
+        <div class="col-12 my-auto">
+        <form action="/boards/<%= board[0]._id %>/update" method="post">
+            <label for="title" class="mt-4">Title</label>
+            <div class="input-group">
+                <input type="text" name="title" class="form-control" value="<%= board[0].title %>"required>
+            </div>
+            <label for="tags" class="mt-4">Tags</label>
+            <input type="hidden" id="database" value="<%= tags.join(',') %>" required>
+            <input type="hidden" name="tags" id="tagValue" required>
+            <div class="tag-container">
+                <input></>  
+            </div>
+            <label for="image" class="mt-4">Image</label>
+            <div class="input-group">
+                <input type="text" name="image" class="form-control" placeholder="Add image link" value="<%= board[0].image %>"required>
+            </div>
+            <label for="content" class="mt-4">Content</label>
+            <div class="input-group">
+                <textarea name="content" class="form-control TypeHere" cols="50" rows="30" style="font-size:16px"><%= board[0].content %></textarea>
+            </div>
+            <button type="submit" class="form-control btn btn-dark submit">Update Board</button>
+        </form>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer') %>
