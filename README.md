@@ -29,5 +29,7 @@
 </ul>
 <br>
 </p>
-
-<h6>Checkout my app at <a href="https://mloops.herokuapp.com/" target="_blank" rel="noopener noreferrer">mLoops</a></h6>
+<h1>Getting started</h1>
+<h6><a href="https://github.com/codecallogic/mLoops" target="_blank" rel="noopener noreferrer">Github</a></h6>
+<h6><a href="https://trello.com/b/sj6LlyXg/mloops" target="_blank" rel="noopener noreferrer">Trello</a></h6>
+<h6><a href="https://mloops.herokuapp.com/" target="_blank" rel="noopener noreferrer">mLoops</a></h6>
