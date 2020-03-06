@@ -26,6 +26,11 @@ a {
   height: 60px;
 }
 
+.tracks tbody :nth-child(3){
+  width:15%!important;
+  height: 60px;
+}
+
 .tracks tbody :nth-child(4){
   width:8%!important;
   height: 60px;
@@ -191,4 +196,8 @@ a {
 
 .comments p{
   color:#747B81!important;
+}
+
+.songName {
+  background-color: rgba(83, 164, 81, .8)!important;
 }

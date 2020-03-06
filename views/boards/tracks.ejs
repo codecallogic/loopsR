@@ -14,10 +14,10 @@
                     %>
                         <tr>
                             <td style="background-image: url('<%= t.album.images[0].url %>'); background-size: 20%; background-repeat: no-repeat;">
-                                <button class="btn btn-success"><%= t.name %></button>
+                                <button class="btn btn-success songName"><%= t.name %></button>
                                 <button class="btn btn-primary"><%= t.popularity %></button>
                                 <a href="<%= t.preview_url %>" class="btn btn-secondary">Preview</a>
-                                <a href="<%= t.external_urls.spotify %>" class="btn btn-info"><i class="material-icons">play_arrow</i></a>
+                                <a href="<%= t.external_urls.spotify %>" target="_blank" class="btn btn-dark"><i class="material-icons">play_arrow</i></a>
                                 <a href="/<%= t.id %>/analyze" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Analyze</a>
                                 
                             </td>
