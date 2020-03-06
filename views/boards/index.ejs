@@ -3,38 +3,38 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-4">
-                <table class="table table-dark playlists text-center">
-                    <thead>
-                        <th><h4>Playlists</h4></th>
-                    </thead>
-                    <tbody>
-                        <% if(user){ %>
-                        <% playlists.forEach( p => { %>
-                            <tr>
-                                <td><a href="/boards/<%= p.id %>/<%= query %>/tracks" class="btn btn-light"><%= p.name %></a></td>
-                            </tr>
-                        <% })}else{ %>
-                            <tr><td><h6>There are no playlists related to this search</h6></td></tr>
-                        <% } %>
-                    </tbody>
-                </table>
+                <h4 class="title text-center">Playlists</h4>
+                <div class="my-container">
+                    <% if(user){ %>
+                    <% playlists.forEach( p => { %>
+                        <div class="columnsPlaylists mb-2" style="padding-bottom:5vmin;">
+                            <a href="/boards/<%= p.id %>/<%= query %>/tracks" class="">
+                                <h4 class="playlistTitle"><%= p.name %></h4>
+                                <img width="50%" src="<%= p.images[0].url %>" alt="">
+                            </a>
+                        </div>
+                    <% })}else{ %>
+                        <tr><td><h6>There are no playlists related to this search</h6></td></tr>
+                    <% } %>
+                </div>
             </div>
             <div class="col-8">
-                <div class="row">
+                <div class="my-container">
                     <% board.forEach( b => { %>
-                        <div class="col-6">
+                        <div class="columns">
+                            <a href="/boards/<%= b._id %>/board">
+                            <h6 class="title"><%= b.title %></h6>
                             <div class="card">
-                            <img width="100%" height="200%" src="<%= b.image %>" alt="" class="card-image overlay">
-                            <div class="card-img-overlay image">
-                                <h3 class="card-title text-center"><%- b.title %></h3>
-                                <p class="card-text"><img width="100%" height="200%" src="<%= b.image %>" alt="" class="card-image"><%- b.content %></p>
-                                <p class="card-text" style="vertical-align: middle;">
-                                    <% b.tags.forEach( t => { %>
-                                    <small class="text-muted"><i class="material-icons" style="margin-right:5px;">bookmark</i><%= t.tags %></small>
-                                <% }) %>
-                                </p>
+                                <div class="card-img-overlay image">
+                                    <p class="card-text"><img width="100%" height="200%" src="<%= b.image %>" alt="" class="card-image"><%- b.content.substr(0,100) + '</p>' %>... click for more</p>
+                                    <p class="card-text" style="vertical-align: middle;">
+                                        <% b.tags.forEach( t => { %>
+                                        <small class="text-muted"><i class="material-icons" style="margin-right:5px;">bookmark</i><%= t.tags %></small>
+                                    <% }) %>
+                                    </p>
+                                </div>
                             </div>
-                            </div>
+                            </a>
                         </div>
                     <% }) %>
                 </div>

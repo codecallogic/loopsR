@@ -26,6 +26,8 @@ router.get('/', usersCtrl.index);
 router.get('/boards/dashboard', usersCtrl.dashboard)
 router.get('/boards/:id/edit', usersCtrl.edit)
 router.post('/boards/:id/update', usersCtrl.update)
+router.post('/boards/delete', usersCtrl.deleteBoard)
+router.post('/boards/comment/add', usersCtrl.addComment)
 
 function isLoggedIn(req, res, next) {
   if ( req.isAuthenticated() ) return next();

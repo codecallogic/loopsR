@@ -13,8 +13,8 @@ tinymce.init({
     // });
     // },
     plugins: [
-        // "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
-        // "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+        "advlist autolink autosave wordcount link visualblocks lists code  charmap print preview insertdatetime hr anchor pagebreak spellchecker nonbreaking table contextmenu directionality emoticons template textcolor paste",
+        // "searchreplace wordcount visualblocks image visualchars code fullscreen insertdatetime media ",
         // "table contextmenu directionality emoticons template textcolor paste "
     ],
 });

@@ -104,3 +104,5 @@ if(database){
     let split = database.split(',')
     tags = split
 }
+
+<a href="/boards/<%= p.id %>/<%= query %>/tracks" class="btn btn-light"><%= p.name %></a>

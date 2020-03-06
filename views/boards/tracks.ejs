@@ -6,7 +6,7 @@
         <div class="col-6">
             <table class="table table-light tracks text-center">
                 <thead>
-                    <th><h4>Songs by <%= artist[0] %></h4></th>
+                    <th><h4 class="title">Songs by <%= artist[0] %></h4></th>
                 </thead>
                 <tbody>
                     <% tracks.forEach( t => { 
@@ -27,22 +27,22 @@
             </table>
         </div>
         <div class="col-6">
-            <div class="row">
+            <div class="my-container">
                 <% board.forEach( b => { %>
-                    <a href=""></a>
-                    <div class="col-6">
+                    <div class="columns">
+                        <a href="/boards/<%= b._id %>/board">
+                        <h6 class="title"><%= b.title %></h6>
                         <div class="card">
-                        <img width="100%" height="200%" src="<%= b.image %>" alt="" class="card-image overlay">
-                        <div class="card-img-overlay image">
-                            <h3 class="card-title text-center"><%- b.title %></h3>
-                            <p class="card-text"><img width="100%" height="200%" src="<%= b.image %>" alt="" class="card-image"><%- b.content %></p>
-                            <p class="card-text" style="vertical-align: middle;">
-                                <% b.tags.forEach( t => { %>
-                                <small class="text-muted"><i class="material-icons" style="margin-right:5px;">bookmark</i><%= t.tags %></small>
-                            <% }) %>
-                            </p>
+                            <div class="card-img-overlay image">
+                                <p class="card-text"><img width="100%" height="200%" src="<%= b.image %>" alt="" class="card-image"><%- b.content.substr(0,100) + '</p>' %>... click here for more</p>
+                                <p class="card-text" style="vertical-align: middle;">
+                                    <% b.tags.forEach( t => { %>
+                                    <small class="text-muted"><i class="material-icons" style="margin-right:5px;">bookmark</i><%= t.tags %></small>
+                                <% }) %>
+                                </p>
+                            </div>
                         </div>
-                        </div>
+                        </a>
                     </div>
                 <% }) %>
             </div>

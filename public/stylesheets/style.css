@@ -21,11 +21,6 @@ a {
   margin: 0px 5vmin 0px 0px;
 }
 
-.playlists tbody a{
-  padding:10px;
-  width:100%;
-}
-
 .tracks tbody :nth-child(2){
   width:8%!important;
   height: 60px;
@@ -98,7 +93,102 @@ a {
 }
 
 .card-title {
-  text-shadow: 5px 5px 5px black;
-  color: white;
+  /* text-shadow: 5px 5px 5px black; */
+  color: black;
+  font-size: 22px;
+  font-weight: 200;
   font-family: Helvetica;
+}
+
+.my-container{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.columns{
+  width:50%;
+  min-height:700px;
+  text-decoration: none;
+  padding:10px;
+}
+
+.card{
+  border: 1px black!important;
+}
+
+.playlistTitle {
+  color:black!important;
+  font-size:14px;
+  font-weight: 100;
+  padding:20px;
+  margin: 0 3vmin 0 3vmin;
+}
+
+.playlists tbody a{
+  padding:10px;
+  width:100%;
+}
+
+.columnsPlaylists{
+  width:50%;
+  text-decoration: none;
+}
+
+.columns a{
+  text-decoration: none;
+  color: black;
+}
+
+.columns a:hover{
+  text-decoration: none;
+  color:#BE5D3C;
+}
+
+.header {
+  font-size:48px;
+  font-weight: 100;
+}
+
+.search {
+  color: #BE5D3C;
+  border-color: #BE5D3C;
+  border-radius: 5px;
+  margin-right: 5vmin;
+}
+
+.content {
+  margin-top: 5vmin;
+}
+
+.content p{
+  font-size: 18px!important;
+  padding-left: 10vmin;
+}
+
+.author{
+  margin: 3vmin 0 3vmin 5vmin;
+  border-bottom: 1px black solid;
+  padding-bottom: 2px;
+}
+
+.author p{
+  color: #3987CC;
+  font-size: 28px;
+  font-weight: 100;
+}
+
+.header {
+  font-size: 62px;
+  font-weight: 200;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.comments p{
+  color:#747B81!important;
 }

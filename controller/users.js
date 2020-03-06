@@ -5,10 +5,13 @@ module.exports = {
     index,
     dashboard,
     edit,
-    update
+    update,
+    deleteBoard,
+    addComment
 }
 
 function index(req, res){
+    // console.log(req.user)
     res.render('index', {
         user: req.user,
         title: 'Home',
@@ -51,5 +54,24 @@ function update(req, res){
     })
     Boards.findByIdAndUpdate({_id: req.params.id}, req.body, function(err, boards) {
         res.redirect('/boards/dashboard')
+    })
+}
+
+function deleteBoard(req, res){
+    Boards.deleteOne({_id: req.body.delete}, function(err){
+        if (err) return res.redirect('/boards/dashboard')
+        res.redirect('/boards/dashboard')
+    })
+}
+
+function addComment(req, res){
+    // console.log('Hello')
+    // console.log(req.body)
+    Boards.findById({_id: req.body.board}, function(err, board){
+        // console.log(board)
+        board.comments.push(req.body)
+        board.save(function(err){
+            res.redirect(`/boards/${board._id}/board`)
+        })
     })
 }

@@ -13,9 +13,9 @@
                     <tbody>
                         <% board.forEach( b => {  %>
                             <tr>
-                                <td><a href="/boards/<%= b._id %>/post" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><%= b.title %></a></td>
+                                <td><a href="/boards/<%= b._id %>/board" rel="noopener noreferrer" style="text-decoration: none;"><%= b.title %></a></td>
                                 <td><a href="/boards/<%= b._id %>/edit" class="btn" style="background-color:#FDEEC0!important;">Edit</a></td>
-                                <td><a href="/boards/<%= b._id %>/delete" class="btn btn-danger">Delete</a></td>
+                                <td><form action="/boards/delete" method="POST"><button type="submit" name="delete" class="btn btn-danger" value="<%= b._id %>">Delete</button></form></td>
                             </tr>
                         <% }) %>
                     </tbody>

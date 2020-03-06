@@ -1,7 +1,7 @@
 const Search = require('../models/search')
 const Boards = require('../models/boards')
+const Users = require('../models/users')
 const Spotify = require('node-spotify-api');
-const axios = require('axios')
 
 
 module.exports = {
@@ -9,17 +9,18 @@ module.exports = {
     playlists,
     tracks,
     create,
+    board,
 }
 
 function form(req, res){
-    // if(req.user){
+    if(req.user){
         res.render('boards/form', {
             title: 'Form',
             user: req.user
         })
-    // }else{
-    //     res.redirect('/auth/google')
-    // }
+    }else{
+        res.redirect('/auth/google')
+    }
 }
 
 function playlists(req, res){
@@ -37,11 +38,13 @@ function playlists(req, res){
         return console.log('Error occurred: ' + err);
     }
     const playlists = []
-    const push = data.playlists.items.forEach( p => {
+    data.playlists.items.forEach( p => {
         return playlists.push(p)
     })
-    // console.log(playlists)
-    Boards.find({'tags.tags': req.body.query}, function(err, boards){
+    // console.log(playlists[0].images)
+    // console.log(playlists[0].images[0].url)
+    Boards.find({'tags.tags': req.body.query.toLowerCase()}, function(err, boards){
+        // console.log(boards)
         if(boards){
             res.render('boards/', {
                 query: req.body.query,
@@ -67,7 +70,7 @@ function playlists(req, res){
 }
 
 function tracks(req, res){
-    // if(req.user){
+    if(req.user){
     const spotify = new Spotify({
         id: '312576630448494695a7b8d3f89756f2',
         secret: 'ab5da3f1e7024822b5e522693815c85a'
@@ -100,6 +103,7 @@ function tracks(req, res){
         // console.log(artists)
         // console.log(images)
         Boards.find({$or: [{'tags.tags': {$in: albumNames} }, {'tags.tags': {$in: artists} }]}, function(err, boards){
+            // console.log(boards)
             if(boards){
                 res.render('boards/tracks', {
                     title: 'Tracks',
@@ -121,19 +125,48 @@ function tracks(req, res){
     console.error('Error occurred: ' + err); 
     });
     });
-    // }else{
-        // res.redirect('/auth/google')
-    // }
+    }else{
+        res.redirect('/auth/google')
+    }
 }
 
 function create(req, res){
+    req.body.createdby = req.user.name
     req.body.googleId = req.user.googleId
     req.body.tags = req.body.tags.split(",").map(function(tag) {
         return { "tags": tag };
     })
     const board = new Boards(req.body)
     board.save(function(err){
-        if(err) return res.redirect('/boards/form')
-        res.redirect('/boards/form')
+        if(err) return res.redirect('/boards/dashboard')
+        res.redirect('/boards/dashboard')
     })
+}
+
+function board(req, res){
+    // console.log(req.user)
+    if(req.user){
+    Boards.findById({_id: req.params.id}, function(err, boards){
+        let comments = []
+        boards.comments.forEach( c => {
+            comments.push(c.user)
+        })
+
+        Users.find({googleId: {$in: comments}}, function(err, comments){
+            // console.log(comments)
+            Users.find({googleId: req.user.googleId}, function(err, profile){
+                // console.log(profile)
+                res.render('boards/board', {
+                    title: 'Post',
+                    user: req.user,
+                    board: boards,
+                    profile: profile,
+                    comments: comments
+                })
+            })
+        })
+    })
+    }else{
+        res.redirect('/auth/google')
+    }
 }
