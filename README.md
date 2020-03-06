@@ -17,8 +17,6 @@
 <li>Other modules</li>
 </ul>
 <br>
-<img src="https://github.com/codecallogic/mLoops/blob/master/images/Screen%20Shot%202020-03-05%20at%2010.04.19%20PM.png?raw=true" alt="">
-<br>
 <img src="https://github.com/codecallogic/mLoops/blob/master/images/Screen%20Shot%202020-03-06%20at%2012.47.15%20AM.png?raw=true">
 <br>
 <h1>Icebox Items</h1>
