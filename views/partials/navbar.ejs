@@ -5,8 +5,8 @@
         <li class="nav-item">
           <% if (user){ %>
             <form action="/boards/search" method="POST" class="form-inline ml-auto">
-              <input type="text" class="form-control mr-2" name="query" placeholder="Enter artist, album, song name">
-              <input type="hidden" name="id" value="<%= user.googleId %>">
+                <input width="100%" type="text" class="form-control mr-2" name="query" placeholder="Type anything related to music">
+                <input type="hidden" name="id" value="<%= user.googleId %>">
               <button class="search">Search</button>
             </form>
           <% }else{ %>
