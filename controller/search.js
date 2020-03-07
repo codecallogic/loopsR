@@ -41,10 +41,9 @@ function playlists(req, res){
     data.playlists.items.forEach( p => {
         return playlists.push(p)
     })
-    // console.log(playlists[0].images)
-    // console.log(playlists[0].images[0].url)
+    console.log()
+    console.log(playlists.length)
     Boards.find({'tags.tags': req.body.query.toLowerCase()}, function(err, boards){
-        // console.log(boards)
         if(boards){
             res.render('boards/', {
                 query: req.body.query,
@@ -83,7 +82,6 @@ function tracks(req, res){
     .then(function(data) {
         let tracks = []
         data.items.forEach( t => {
-            // console.log(t.track)
             tracks.push(t.track)
 
         })
@@ -97,13 +95,7 @@ function tracks(req, res){
                 artists.push(a.name.toLowerCase())
             })
         })
-        // console.log(tracks)
-        // console.log(tracks[0].album.images[0])
-        // console.log(albumNames)
-        // console.log(artists)
-        // console.log(images)
         Boards.find({$or: [{'tags.tags': {$in: albumNames} }, {'tags.tags': {$in: artists} }]}, function(err, boards){
-            // console.log(boards)
             if(boards){
                 res.render('boards/tracks', {
                     title: 'Tracks',
@@ -144,7 +136,6 @@ function create(req, res){
 }
 
 function board(req, res){
-    // console.log(req.user)
     if(req.user){
     Boards.findById({_id: req.params.id}, function(err, boards){
         let comments = []
@@ -153,9 +144,7 @@ function board(req, res){
         })
 
         Users.find({googleId: {$in: comments}}, function(err, comments){
-            // console.log(comments)
             Users.find({googleId: req.user.googleId}, function(err, profile){
-                // console.log(profile)
                 res.render('boards/board', {
                     title: 'Post',
                     user: req.user,
