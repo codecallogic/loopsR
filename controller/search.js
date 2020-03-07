@@ -10,6 +10,7 @@ module.exports = {
     tracks,
     create,
     board,
+    analyze
 }
 
 function form(req, res){
@@ -41,8 +42,6 @@ function playlists(req, res){
     data.playlists.items.forEach( p => {
         return playlists.push(p)
     })
-    console.log()
-    console.log(playlists.length)
     Boards.find({'tags.tags': req.body.query.toLowerCase()}, function(err, boards){
         if(boards){
             res.render('boards/', {
@@ -74,10 +73,6 @@ function tracks(req, res){
         id: '312576630448494695a7b8d3f89756f2',
         secret: 'ab5da3f1e7024822b5e522693815c85a'
     });
-    spotify.search({ type: 'playlist', query: `${req.params.query}` }, function(err, data) {
-    if (err) {
-        return console.log('Error occurred: ' + err);
-    }
     spotify.request(`https://api.spotify.com/v1/playlists/${req.params.id}/tracks`)
     .then(function(data) {
         let tracks = []
@@ -115,7 +110,6 @@ function tracks(req, res){
     })
     .catch(function(err) {
     console.error('Error occurred: ' + err); 
-    });
     });
     }else{
         res.redirect('/auth/google')
@@ -155,6 +149,35 @@ function board(req, res){
             })
         })
     })
+    }else{
+        res.redirect('/auth/google')
+    }
+}
+
+function analyze(req, res){
+    if(req.user){
+    const spotify = new Spotify({
+        id: '312576630448494695a7b8d3f89756f2',
+        secret: 'ab5da3f1e7024822b5e522693815c85a'
+    });
+    spotify.request(`https://api.spotify.com/v1/audio-analysis/${req.params.id}`)
+    .then(function(data1) {
+        spotify.request(`https://api.spotify.com/v1/audio-features/${req.params.id}`)
+        .then(function(data2) {
+        console.log(data1.segments[0].start)
+        console.log(data2)
+        res.render('boards/analyze', {
+            title: 'Analyze',
+            user: req.user
+        })
+        })
+        .catch(function(err) {
+            console.error('Error occurred: ' + err); 
+        });
+    })
+    .catch(function(err) {
+        console.error('Error occurred: ' + err); 
+    });
     }else{
         res.redirect('/auth/google')
     }

@@ -7,5 +7,6 @@ routes.get('/:id/:query/tracks', searchCtrl.tracks)
 routes.get('/form', searchCtrl.form)
 routes.post('/create', searchCtrl.create)
 routes.get('/:id/board', searchCtrl.board)
+routes.get('/:id/analyze', searchCtrl.analyze)
 
 module.exports = routes;
