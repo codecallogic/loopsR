@@ -8,7 +8,7 @@
             <div class="input-group">
                 <input type="text" name="title" class="form-control" value="<%= board[0].title %>"required>
             </div>
-            <label for="tags" class="mt-4">Tags</label>
+            <label for="tags" class="mt-4">Tags <small class="text-muted"> Press (Enter) to populate saved tags</small></label>
             <input type="hidden" id="database" value="<%= tags.join(',') %>" required>
             <input type="hidden" name="tags" id="tagValue" required>
             <div class="tag-container">
