@@ -13,7 +13,7 @@ tinymce.init({
     // });
     // },
     plugins: [
-        "advlist autolink autosave wordcount link visualblocks lists code  charmap print preview insertdatetime hr anchor pagebreak spellchecker nonbreaking table contextmenu directionality emoticons template textcolor paste",
+        "advlist autolink autosave wordcount link visualblocks lists code charmap print preview insertdatetime hr anchor pagebreak spellchecker nonbreaking table contextmenu directionality emoticons template textcolor paste a11ychecker advcode casechange formatpainter linkchecker autolink checklist media mediaembed pageembed permanentpen powerpaste advtable tinycomments tinymcespellchecker",
         // "searchreplace wordcount visualblocks image visualchars code fullscreen insertdatetime media ",
         // "table contextmenu directionality emoticons template textcolor paste "
     ],
@@ -77,6 +77,7 @@ input.addEventListener('keyup', (e) => {
       input.value = '';
     }
 });
+
 document.addEventListener('click', (e) => {
   console.log(e.target.tagName);
   if (e.target.tagName === 'I') {
