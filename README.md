@@ -1,5 +1,5 @@
 <h1>mLoops</h1>
-<p>mLoops allows access to Spotify's millions of songs and curated playlists. Users can create posts related to their music search using tags. They can also provide comments on other posts created by other users. Other features of the app include data on a tracks popularity, a link to play the song, and a beta functionality to analyze each audio track which describes the track’s structure and musical content, including rhythm, pitch, and timbre. All information is precise to the audio sample.</p>
+<p>mLoops allows access to Spotify's millions of songs and curated playlists. Users can create posts related to their music search using tags. They can also provide comments on other posts created by other users. Other features of the app includes data of a tracks popularity on a 0 to 100 scale, a link to play the song, and a beta functionality to analyze each audio track which describes the track’s structure and musical content, including rhythm, pitch, and timbre. All information is precise to the audio sample.</p>
 
 <img src="https://github.com/codecallogic/mLoops/blob/master/images/Screen%20Shot%202020-03-05%20at%2010.04.19%20PM.png?raw=true" alt="">
 
